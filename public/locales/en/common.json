@@ -1,9 +1,10 @@
 {
   "language": {
-      "name": "English",
+    "name": "English",
     "selector": {
       "placeholder": "Select a language...",
-      "input": "$t(language.selector.placeholder)"
+      "input": "$t(language.selector.placeholder)",
+"empty": "No languages available"
     }
   }
 }
