@@ -1,0 +1,9 @@
+{
+  "language": {
+"name": "Español",
+"selector": {
+"placeholder": "Escoja un idioma...",
+"input": "$(language.selector.placeholder)"
+}
+  }
+}

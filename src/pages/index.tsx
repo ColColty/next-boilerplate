@@ -1,9 +1,23 @@
 import Head from "next/head";
 import Link from "next/link";
-
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
+import i18nextconfig from "../../next-i18next.config.mjs";
 import { api } from "~/utils/api";
+import LanguageSelector from "~/components/languageSelector";
+
+export const getStaticProps = async ({ locale }: { locale: string }) => ({
+  props: {
+    ...(await serverSideTranslations(locale, ["common"], i18nextconfig, [
+      "fr",
+      "es",
+      "en",
+    ])),
+  },
+});
 
 export default function Home() {
+  const { t } = useTranslation();
   const hello = api.post.hello.useQuery({ text: "from tRPC" });
 
   return (
@@ -45,6 +59,8 @@ export default function Home() {
           <p className="text-2xl text-white">
             {hello.data ? hello.data.greeting : "Loading tRPC query..."}
           </p>
+          <LanguageSelector />
+          <p className="text-xl text-white">{t("language.name")}</p>
         </div>
       </main>
     </>
