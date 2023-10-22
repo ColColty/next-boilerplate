@@ -34,7 +34,7 @@ export default function Home() {
           <NavBar
             links={[
               { label: "Test", link: "/" },
-              { label: "Language", component: <LanguageSelector />},
+              { label: "Language", component: <LanguageSelector minimize />},
               { label: "Button", component: <Button>Lool</Button> },
             ]}
             logo="/assets/logo/logo.svg"
