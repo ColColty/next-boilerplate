@@ -2,31 +2,11 @@ import React from "react";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { Button } from "./ui/button";
 import { Check, ChevronsUpDown } from "lucide-react";
-import {
-  Command,
-  CommandInput,
-  CommandEmpty,
-  CommandGroup,
-  CommandItem,
-} from "./ui/command";
+import { Command, CommandEmpty, CommandGroup, CommandItem } from "./ui/command";
 import { useTranslation } from "next-i18next";
 import { cn } from "~/utils";
 import { useRouter } from "next/router";
-
-const languages = [
-  {
-    value: "en",
-    label: "English",
-  },
-  {
-    value: "fr",
-    label: "Français",
-  },
-  {
-    value: "es",
-    label: "Español",
-  },
-];
+import { languages } from "~/utils/languages";
 
 const LanguageSelector = () => {
   const router = useRouter();
@@ -58,7 +38,6 @@ const LanguageSelector = () => {
       </PopoverTrigger>
       <PopoverContent className="p-0">
         <Command>
-          <CommandInput placeholder={t("language.selector.input")} />
           <CommandEmpty>{t("language.selector.empty")}</CommandEmpty>
           <CommandGroup>
             {languages.map((language) => (

@@ -5,6 +5,8 @@ import { useTranslation } from "next-i18next";
 import i18nextconfig from "../../next-i18next.config.mjs";
 import { api } from "~/utils/api";
 import LanguageSelector from "~/components/languageSelector";
+import NavBar from "~/components/navbar";
+import { Button } from "~/components/ui/button";
 
 export const getStaticProps = async ({ locale }: { locale: string }) => ({
   props: {
@@ -29,6 +31,14 @@ export default function Home() {
       </Head>
       <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c]">
         <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
+          <NavBar
+            links={[
+              { label: "Test", link: "/" },
+              { label: "Language", component: <LanguageSelector />},
+              { label: "Button", component: <Button>Lool</Button> },
+            ]}
+            logo="/assets/logo/logo.svg"
+          />
           <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
             Create <span className="text-[hsl(280,100%,70%)]">T3</span> App
           </h1>
